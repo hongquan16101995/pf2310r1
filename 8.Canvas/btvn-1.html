@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="c1()">C1</button>
+    <p id="r1"></p>
+    <button onclick="c2()">C2</button>
+    <p id="r2"></p>
+    <button onclick="c3()">C3</button>
+    <p id="r3"></p>
+    <button onclick="c4()">C4</button>
+    <p id="r4"></p>
+    <button onclick="c5()">C5</button>
+    <p id="r5"></p>
+</body>
+<script>
+    function c1() {
+        let data = ""
+        for(let i = 1; i <= 100; i++) {
+            data += i + " ; "
+        }
+        document.getElementById("r1").innerHTML = data
+    }
+
+    function c2() {
+        let sum = 0
+        for(let i = 2; i <= 50; i+=2) {
+            sum += i
+        }
+        document.getElementById("r2").innerHTML = sum
+    }
+
+    function c3() {
+        let a = +prompt("Nhập vào cơ số: ")
+        let b = +prompt("Nhập vào số mũ: ")
+        document.getElementById("r3").innerHTML = Math.pow(a,b)
+    }
+
+
+    function c4() {
+        let arr = [4,67,3,2,5,7,56,3,23,5]
+        let sum = 0
+        for(let value of arr) {
+            sum += value
+        }
+        document.getElementById("r4").innerHTML = sum
+    }
+
+    function c5() {
+        let arr = [4,67,3,2,5,7,56,3,23,5]
+        let max = arr[0]
+        let min = arr[0]
+        for(let value of arr) {
+            if (value > max) {
+                max = value
+            }
+            if (value < min) {
+                min = value
+            }
+        }
+        document.getElementById("r5").innerHTML = "Max: " + max + "; min: " + min
+    }
+
+
+    //sắp xếp mảng không sử dụng hàm sort
+    //phương pháp sắp xếp nổi bọt nâng cao
+    let arr = [3,4,5,78,45,323,6,89,56]
+    let count = 0
+    let check = true
+    for(let i = 0; (i < arr.length) && check ; i++) {
+        check = false
+        for(let j = 0; j < arr.length; j++) {
+            if (arr[j] > arr[j+1]) {
+                let temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
+                check = true
+            }
+            count++
+        }
+    }
+    console.log(arr);
+    console.log(count);
+</script>
+</html>

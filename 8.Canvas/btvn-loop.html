@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="c1()">C1</button>
+    <p id="r1"></p>
+    <button onclick="c2()">C2</button>
+    <p id="r2"></p>
+    <button onclick="c3()">C3</button>
+    <p id="r3"></p>
+    <button onclick="c4()">C4</button>
+    <p id="r4"></p>
+    <button onclick="c5()">C5</button>
+    <p id="r5"></p>
+</body>
+<script>
+    function c1() {
+        let sum = 0
+        for(let i = 1; i < 500; i++) {
+            if (checkPrime(i)) {
+                sum += i
+            }
+        }
+        document.getElementById("r1").innerHTML = sum
+    }
+
+    function c2() {
+        for(let i = 1; i <= 200; i++) {
+            if (checkPrime(i)) {
+                console.log("SNT");
+            } else {
+                console.log(i);
+            }
+        }
+    }
+
+    function c3() {
+        do {
+            let number = +prompt("Nhập số bất kỳ: ")
+            if (checkPrime(number)) {
+                alert(number)
+                break
+            } else {
+                alert("Mời nhập lại!")
+            }
+        } while(true)
+    }
+
+
+    function c4() {
+        let str = prompt("Nhập chuỗi ký tự bất kỳ: ")
+        let arr = str.split("")
+        let count = 0
+        let count1 = 0
+        for(let value of arr) {
+            if (isNaN(value)) {
+                count++
+            } else {
+                count1++
+            }
+        }
+        document.getElementById("r4").innerHTML = "Số chữ cái: " + count + "; số lượng số: " + count1
+    }
+
+    function c5() {
+        let number = +prompt("Nhập số bất kỳ: ")
+        let result = 1
+        for(let i = 1; i <= number; i++) {
+            result *= i
+        }
+        document.getElementById("r5").innerHTML = result
+    }
+
+    function checkPrime(n) {
+        if (n < 2) {
+            return false
+        }
+        for(let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false
+            }
+        }
+        return true
+    }
+</script>
+</html>
