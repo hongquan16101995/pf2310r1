@@ -1,0 +1,21 @@
+- Bài đơn giản:
+1. In các số từ 1 => 100
+2. Tính tổng các số chẵn từ 1 => 50
+3. Nhập vào 2 số A và B. Tính lũy thừa cơ số A, số mũ B
+4. Cho mảng có sẵn có 10 phần tử số. Tính tổng các phần tử
+5. Cho mảng có sẵn có 10 phần tử số. Tìm phần tử nhỏ nhất và lớn nhất trong mảng. Biết các phần tử có giá trị khác nhau
+
+- Bài tập lặp:
+1. Tính tổng các số nguyên tốt nhỏ hơn 500
+2. Duyệt từ 1 => 200, các SNT thay bằng từ khóa "SNT", còn lại hiển thị số như bình thường
+3. Viết chương trình cho ng dùng nhập vào từ bàn phím (nhập bất kỳ). Nếu ng dùng nhập vào SNT thì dừng lại và hiển thị SNT đó bằng alert
+4. Nhập 1 chuỗi ký tự bất kỳ. Đếm số lượng chữ cái và số có trong chuỗi. VD: abc123 => Số chữ cái: 3, Số lượng số: 3
+5. Nhập vào 1 số bất kỳ, tính giai thừa của số đó
+
+- Bài tập mảng:
+1. Viết chương trình cho ng dùng nhập từ bàn phím số lượng phần tử của mảng và giá trị của các phần tử đó
+2. Cho mảng có 10 phần tử số. Tìm số lớn thứ 2 trong mảng. Biết các phần tử có giá trị khác nhau
+3. Cho mảng có 10 phần tử số. Nhập 1 số từ bàn phím và xác định số đó xuất hiện bao nhiêu lần trong mảng
+4. Cho mảng có 10 phần tử số. Tính tổng các số dương có trong mảng và thay thế các số âm bằng số 0
+5. Viết chương trình nhập vào từ bàn phím giá trị các phần tử của mảng có 15 phần tử. Xác định có bao nhiêu số trong mảng và có bao nhiều số chia hết cho 3
+6. Cho mảng có 10 phần tử số. Sắp xếp mảng tăng dần (không sử dụng hàm sort)

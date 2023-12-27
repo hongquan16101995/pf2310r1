@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="600" height="500" id="canvas" style="border: 1px solid;"></canvas>
+    <br>
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+</body>
+<script>
+    class Rectangle {
+        x
+        y
+        w 
+        h 
+        color
+        speed
+
+        constructor(x, y, w, h, color, speed) {
+            this.x = x
+            this.y = y
+            this.w = w
+            this.h = h 
+            this.color = color
+            this.speed = speed
+        }
+
+        draw(ctx) {  
+            ctx.fillStyle = this.color
+            ctx.fillRect(this.x, this.y, this.w, this.h)
+        }
+    }
+
+    let ctx = document.getElementById("canvas").getContext("2d")
+    let rect1 = new Rectangle(20, 20, 50, 50, "black", 7)
+    let rect2 = new Rectangle(120, 20, 50, 50, "black", 6)
+    let rect3 = new Rectangle(220, 20, 50, 50, "black", 5)
+    let rect4 = new Rectangle(320, 20, 50, 50, "black", 4)
+    let rect5 = new Rectangle(420, 20, 50, 50, "black", 3)
+    let rect = new Rectangle(520, 400, 20, 20, "red")
+    let fruit = new Rectangle(20, 20, 40, 40, "yellow")
+    let time
+    
+    function move(rect) {
+        rect.y += rect.speed
+        if (rect.y >= 400 || rect.y <= 20) {
+            rect.speed = -(parseInt(Math.random() * rect.speed))
+            if (rect.speed > 0 || (rect.speed == 0 && rect.y <= 20)) {
+                rect.speed += 2
+            } else if (rect.speed < 0 || (rect.speed == 0 && rect.y >= 400)){
+                rect.speed += -2
+            }
+        }
+    }
+
+    function run() {
+        ctx.clearRect(0,0,800,500)
+        rect1.draw(ctx)
+        rect2.draw(ctx)
+        rect3.draw(ctx)
+        rect4.draw(ctx)
+        rect5.draw(ctx)
+        rect.draw(ctx)
+        fruit.draw(ctx)
+        move(rect1)
+        move(rect2)
+        move(rect3)
+        move(rect4)
+        move(rect5)
+        if(checkCollision(rect1, rect) || checkCollision(rect2, rect) || 
+            checkCollision(rect3, rect) || checkCollision(rect4, rect)) {
+            stop()
+            alert("Die!")
+        }
+    }
+
+    function start() {
+        time = setInterval(run, 10)
+    }
+
+    function stop() {
+        clearInterval(time)
+    }   
+
+    function checkCollision(rect1, rect2) {
+        let distX = Math.abs((rect1.x + rect1.w/2) - (rect2.x + rect2.w/2))
+        let distW = rect1.w/2 + rect2.w/2
+        let distY = Math.abs((rect1.y + rect1.h/2) - (rect2.y + rect2.h/2))
+        let distH = rect1.h/2 + rect2.h/2
+        return (distX < distW && distY < distH)
+    }
+
+    window.addEventListener("keydown", moveSelected)
+
+    function moveSelected(e) {
+        switch(e.keyCode) {
+            case 37:
+                moveLeft(rect)
+                break
+            case 38:
+                moveTop(rect)
+                break
+            case 39:
+                moveRight(rect)
+                break
+            case 40:
+                moveBottom(rect)
+                break
+        }
+    }
+
+    function moveLeft(r) {
+        r.x -= 4
+    }
+
+    function moveRight(r) {
+        r.x += 4
+    }
+
+    function moveTop(r) {
+        r.y -= 4
+    }
+
+    function moveBottom(r) {
+        r.y += 4
+    }
+</script>
+</html>
